@@ -20,8 +20,8 @@ public class ResetPasswordTests extends BaseTest {
         RequestPasswordResetSubmitPage requestPasswordResetSubmitPage =
                 requestPasswordResetPage.findAccount(userEmail);
 
-        //ChooseNewPasswordPage chooseNewPasswordPage =
-        //        requestPasswordResetSubmitPage.navigateToLinkFromEmail();
+        ChooseNewPasswordPage chooseNewPasswordPage =
+                requestPasswordResetSubmitPage.navigateToLinkFromEmail();
 
 
     }

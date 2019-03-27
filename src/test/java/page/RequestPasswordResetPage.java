@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import util.GMailService;
 
-public class RequestPasswordResetPage {
+public class RequestPasswordResetPage extends BasePage {
     WebDriver driver;
 
     @FindBy(xpath = "//input[@id='username']")
@@ -41,9 +41,11 @@ public class RequestPasswordResetPage {
         String message = gMailService.waitMessage(messageSubject, messageTo, messageFrom, 180);
         System.out.println("Content: " + message);
 
-        String resetPasswordUrl = StringUtils.substringBetween(message, "href=\"", "\" style=\"cursor:pointer;color:#008CC9;-webkit-text-size-adjust:100%;display:inline-block;text-decoration:none;-ms-text-size-adjust:100%;\">Reset my password\n");
+        resetPasswordUrl = StringUtils
+                .substringBetween(message, "href=\"", "\" style=\"cursor:pointer;color:#008CC9;-webkit-text-size-adjust:100%;display:inline-block;text-decoration:none;-ms-text-size-adjust:100%;\">Reset my password")
+                .replace("amp;", "");
 
-        resetPasswordUrl.replace("amp;", "");
+        System.out.println(resetPasswordUrl);
         return new RequestPasswordResetSubmitPage(driver);
     }
 }

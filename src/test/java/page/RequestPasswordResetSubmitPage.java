@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RequestPasswordResetSubmitPage {
+public class RequestPasswordResetSubmitPage extends BasePage {
     WebDriver driver;
 
     @FindBy(xpath = "//button[@id='resend-url']")
@@ -23,7 +23,7 @@ public class RequestPasswordResetSubmitPage {
     }
 
     public ChooseNewPasswordPage navigateToLinkFromEmail() {
-        //driver.get(resetPasswordUrl);
+        driver.get(resetPasswordUrl);
         return new ChooseNewPasswordPage(driver);
     }
 }

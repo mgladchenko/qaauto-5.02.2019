@@ -3,7 +3,7 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class ChooseNewPasswordPage {
+public class ChooseNewPasswordPage extends BasePage {
     WebDriver driver;
 
     public ChooseNewPasswordPage(WebDriver driver) {
